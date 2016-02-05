@@ -1,0 +1,14 @@
+Java Collection classes enable the storing of primitives or object references in one place in memory.
+
+
+
+------------------------------------
+                                            ARRAY LIST
+List<String> names=new ArrayList<String>();
+ArrayLists  actually use internally pre-defined fixed-sized array.
+   Getting element from the ArrayList names.get(5) is a constant time ( big O(1))  because the index is known just get the element from this index.
+   Insertion/Deletion like names.put("makaveli") is a linear time (big O(n)) because a new fixed size array will be created internally and the elements of
+   old array will be copied to newer. This traversing will cause linear time.
+
+   numsArray=new int[]{5,6};  numsArrayList=new ArrayList<Integer>(){5,6};    which one is faster?  numsArray[2]   numsArrayList[2]
+   of course int[] array will be faster(but cannot be considered difference) but both of them big O(1) just arraylist Just in Time will do some extra check op.
