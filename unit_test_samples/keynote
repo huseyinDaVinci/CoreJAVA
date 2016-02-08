@@ -1,0 +1,24 @@
+Simply to test functionality of the class we can use junit test framework
+
+we can define rules @Rule also write our custom test rule.
+@Before @After
+
+
+Mockito  --is a framework for mocking objects to tests to prevent class dependency garbage
+
+We can mock the objects and can say  how they behave accordingly.  (Detail example:) MockitoCarGallery
+
+
+@BeforeClass
+    public static void setUp() throws Exception {
+        carGallery = mock(CarGallery.class);
+        car1 = new Car("sahin", 2000);
+        car2 = new Car("dogan", 2002);
+        car3 = new Car("kartal", 2005);
+
+        when(carGallery.getCars()).thenReturn(Arrays.asList(car1, car2, car3));
+        when(carGallery.getOldestCar()).thenReturn(car1);
+        when(carGallery.addCarToGallery(car1)).thenReturn(car1.model + " is added to gallery");
+        when(carGallery.addCarToGallery(car2)).thenReturn("tamamdır");
+        when(carGallery.getOldestCar()).thenReturn(car1);
+    }
