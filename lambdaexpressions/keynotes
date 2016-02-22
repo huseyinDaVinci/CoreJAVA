@@ -1,0 +1,55 @@
+First you should clearly understand that..
+
+
+-Concept vs Implementation
+ A Concept can have multiple implementations.
+   Map concept implemented  as HashMap, ConcurrentHashMap
+   List concept implemented as ArrayList, LinkedList etc.
+
+
+ Lambdas are a concept that has its own implementation flavor in different languages
+ There are two distinct things to learn
+   The general concept of lambdas expressions
+   and of course the implementation of java 8 to concept lambda expressions
+--------------------------------------------------------------------------------------
+
+Lambda expression lifecycle
+
+   When compiler sees the lambda expressions
+
+   next 2 things will do
+
+   1-convert the lambda expression to a function
+   2-call the generated  static function
+     (public static generatedNameOfLambdaFunction(Integer x){sout(i)})....
+
+-------------------------------------------------------------------------------------
+Assign lambda to a local variable
+The type of a lambda expression is same as the functional interface that the lambda expression is assigned to!!
+public interface Consumer<T>{
+
+    void accept(T t);
+}
+
+public forEach(Consumer<Integer> action){
+    for(Integer i:items){
+            action.accept(t);
+     }
+}
+
+List<Integer> integers= Arrays.asList(1,2,3,4,5);
+Consumer<Integer> consumer=x-> System.out.println(x);
+integers.forEach(consumer);
+----------------------------------------------------------------------------------------------
+
+Variable capture.... (If you cannot touch outside members of a lambda expressions, it will be useless right)
+-Lambdas can interact with variables defines outside the body of the lambda
+-Using variable outside in lambda is called variable capture
+
+------------------------------------------------------------------------------------------------
+Method References
+-A lambda is a way to define  an anonymous function
+-But what if the function that wwe want to use is already written
+-Method references can be used to pass an existing function in stead of a lambda expression.
+
+

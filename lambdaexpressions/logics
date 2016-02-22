@@ -1,0 +1,20 @@
+1- List<String> names = Arrays.asList("bora", "ilker", "bülent");
+       names.forEach(new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+
+            }
+        });
+
+ names.forEach(s-> System.out.println(s));
+
+Logic: when we create a java function it is important that the coming and return parameters, thrown exceptions and lastly body of the function.
+
+names.forEach() --actually we are accepting a Consumer<String>
+all the parts are certain
+Interface is the signature of the static generated method
+lambda expression is the body of the function that's it.
+----------------------------------------------------------------------------------------
+
+
+
