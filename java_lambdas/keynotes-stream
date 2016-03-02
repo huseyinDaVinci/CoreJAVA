@@ -1,0 +1,54 @@
+Declarative programming  vs Imperative programming
+
+
+The main difference is that
+    OOP is mostly about abstracting over data, while functional programming is mostly about abstracting over behavior.
+
+
+Streams : allow us processing collections at a high level abstraction.
+    Stream interface contains many useful function to do operations on collection.
+
+Javadoc:
+"A sequence of elements supporting sequential and parallel aggregate  operations.
+Collections and streams, while bearing some superficial similarities,
+     * have different goals.  Collections are primarily concerned with the efficient
+     * management of, and access to, their elements.  By contrast, streams do not
+     * provide a means to directly access or manipulate their elements, and are
+     * instead concerned with declaratively describing their source and the
+     * computational operations which will be performed in aggregate on that source."
+
+
+Some popular stream operations filter,map, flatmap, min, max, collect(toList())
+
+
+KEY POINT:  A Stream is a tool to do complex operations on collections with functional way....
+SHOULD UNDERSTAND THE DIFFERENCE BETWEEN EAGER AND LAZY  EVALUATION
+  getNames().stream().filter(name->name.startsWith("Al"));   //this is simply lazy evaluation
+  filter do not force to return a value like count
+
+  HOW TO UNDERSTAND:  if we get back a stream at the end of the operation. it is "lazy evaluation"
+                      if we get a final value at the end int,long,any object etc.   this is "eager"
+  While chaining operation to each other. Actually we are iterating loop at once according to operator. and not creating a new collection (key point here actually)
+  like    getNames().stream().filter(s-s.startsWith("a"));  not iterate the collection no no.  only we are returning a new stream recipe here. And at the end, if
+  we want to add a eager to end. like count, sum etc. Iterate at the and once and return the result.
+  As you see:  we are doing complex jobs on Collections with a minimum cost with a functional way.
+
+  Lastly, getMVPsAllTime().stream().filter(s->s.team.startsWith("Brooklyn")).count()   ---> (here  we are creating stream recipes here and finally count it...)
+
+
+
+
+ALWAYS CHECK THIS DESCRIPTION --- IF YOU USE STREAMS LIKE THAT  :((((   DO NOT DO THIS
+
+List<Artist> musicians = album.getMusicians().collect(toList());
+List<Artist> bands = musicians.stream().filter(artist -> artist.getName().startsWith("The")).collect(toList());
+Set<String> origins = bands.stream().map(artist -> artist.getNationality()).collect(toSet());
+
+Example 3-25. Idiomatically chained stream calls  (MUCH BETTER)
+Set<String> origins = album.getMusicians().filter(artist -> artist.getName().startsWith("The")).map(artist -> artist.getNationality()).collect(toSet());
+
+
+
+
+
+
