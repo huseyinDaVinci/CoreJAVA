@@ -11,9 +11,9 @@ class FindIntegerSquareRootCloseToGivenInteger {
             throw new Exception("k cannot be lower than zero.");
         }
 
-
         long l = 0;
         long r = k;
+
 
         while (l <= r) {
             long mid = l + ((r - l) / 2);
@@ -25,5 +25,20 @@ class FindIntegerSquareRootCloseToGivenInteger {
             }
         }
         return (int) l - 1;
+
+    }
+
+
+    //alternative solution... if allowed...
+    static int findIntegerSquareRootCloseToGivenInteger2(int k) throws Exception {
+
+        if (k < 0) {
+            throw new Exception("k cannot be lower than zero.");
+        }
+
+        double res = Math.exp(0.5 * Math.log(Double.parseDouble("" + k)));
+
+
+        return (int) res;
     }
 }
